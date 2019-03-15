@@ -33,9 +33,11 @@ if __name__ == '__main__':
     #result = open(config_ini['DEFAULT']['path_to_save_file'], "w", encoding='utf8')
 
     log = open(config_ini['DEFAULT']['log_file'], 'w')
+
     for camer in camerasArray:
         print(camer)
-        status = changeLogTries(camer.ip, camer.port, camer.login, camer.password)
+
+        status = changeLogTries(camer.ip, camer.port, camer.login, camer.password, int(config_ini['DEFAULT']['mode']))
         log.write("{}:{}\t{}\n".format(camer.ip, camer.port, status))
 
 
